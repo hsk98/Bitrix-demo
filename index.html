@@ -1,314 +1,230 @@
-<!-- =============================
-  Multi‑page GitHub Pages Site (Jekyll)
-  Copy each FILE block into your repo with the same paths.
-  After commit: Settings → Pages → Deploy from branch.
-============================= -->
-
-<!-- FILE: _config.yml -->
-# Site metadata — fill these in or send me your details and I’ll update
-name: "Hazem Sabu"
-role: "CRM Manager · Real Estate"
-tagline: "Commercial & Residential CRM — pipelines, automations, data, and adoption"
-email: "hazemsabu20@gmail.com"
-phone: "+971585560929" # optional
-location: "Dubai"
-linkedin: "https://linkedin.com/in/hazem-sabu"
-github_username: "hsk98"
-resume_url: "/assets/Resume.pdf" # drop your PDF into /assets
-photo_url: "/assets/headshot.jpg" # optional
-demo_url: "https://hsk98.github.io/Bitrix-demo"
-keywords: [CRM, Bitrix24, Real Estate, Automation, Lead Scoring, Dashboards]
-permalink: pretty
-
-# Jekyll config
-markdown: kramdown
-kramdown:
-  input: GFM
-plugins: []
-
-
-<!-- FILE: _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }} — {{ site.name }}</title>
-  <meta name="description" content="{{ site.tagline }}">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hazem Sabu — CRM Manager · Real Estate</title>
+  <meta name="description" content="Commercial & Residential CRM: pipelines, automations, data, reporting, and adoption." />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000'/><text x='50' y='58' font-size='54' text-anchor='middle' fill='white' font-family='Arial'>CRM</text></svg>">
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = { theme: { extend: { container: { center: true, padding: '1rem' } } } };</script>
+  <!-- Chart.js & Mermaid for demos -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>mermaid.initialize({ startOnLoad: true, theme: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'default' });</script>
-  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    html{scroll-behavior:smooth}
+    .glass{backdrop-filter:saturate(140%) blur(10px);background:rgba(255,255,255,.7)}
+    @media (prefers-color-scheme:dark){.glass{background:rgba(17,24,39,.6)}}
+    .container-narrow{max-width:62rem;margin-left:auto;margin-right:auto}
+  </style>
 </head>
 <body class="bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-  {% include header.html %}
-  <main class="container max-w-7xl px-4 py-10">{{ content }}</main>
-  {% include footer.html %}
-  <script src="/assets/app.js"></script>
-</body>
-</html>
+  <!-- Header -->
+  <header class="sticky top-0 z-40 glass border-b border-zinc-200/70 dark:border-zinc-800/80">
+    <div class="container-narrow px-4 py-3 flex items-center gap-4 justify-between">
+      <a href="#overview" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-600"></div>
+        <div>
+          <p class="font-semibold leading-tight">Hazem Sabu</p>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400">CRM Manager · Real Estate</p>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-5 text-sm">
+        <a href="#overview" class="hover:opacity-80">Overview</a>
+        <a href="#pipelines" class="hover:opacity-80">Pipelines</a>
+        <a href="#automations" class="hover:opacity-80">Automations</a>
+        <a href="#analytics" class="hover:opacity-80">Analytics</a>
+        <a href="#data-model" class="hover:opacity-80">Data Model</a>
+        <a href="#governance" class="hover:opacity-80">Admin</a>
+        <a href="#training" class="hover:opacity-80">Training</a>
+        <a href="#plan-90" class="hover:opacity-80">90‑Day Plan</a>
+        <a href="#contact" class="hover:opacity-80">Contact</a>
+        <a href="https://hsk98.github.io/Bitrix-demo" target="_blank" rel="noopener noreferrer" class="hover:opacity-80">Bitrix Demo ↗</a>
+      </nav>
+      <button id="themeToggle" aria-pressed="false" class="rounded-xl px-3 py-2 text-xs border border-zinc-200 dark:border-zinc-700">Toggle</button>
+    </div>
+  </header>
 
+  <!-- Overview / Hero -->
+  <section id="overview" class="relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl opacity-20 bg-indigo-400"></div>
+      <div class="absolute -bottom-48 -right-40 w-[34rem] h-[34rem] rounded-full blur-3xl opacity-20 bg-fuchsia-500"></div>
+    </div>
 
-<!-- FILE: _includes/header.html -->
-<header class="sticky top-0 z-40 glass border-b border-zinc-200/70 dark:border-zinc-800/80">
-  <div class="container max-w-7xl px-4 py-3 flex items-center gap-3 justify-between">
-    <div class="flex items-center gap-3">
-      <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-600"></div>
-      <div>
-        <p class="font-semibold leading-tight">{{ site.name }}</p>
-        <p class="text-xs text-zinc-500 dark:text-zinc-400">{{ site.role }}</p>
+    <div class="container-narrow px-4 py-16">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Real Estate CRM Portfolio</h1>
+          <p class="mt-4 text-zinc-600 dark:text-zinc-300 text-lg">Commercial & Residential pipelines, lead scoring, automations, reporting, and governance—designed to cut response time, improve conversion, and keep data clean.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#pipelines" class="px-4 py-2 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">View Work</a>
+            <a href="#contact" class="px-4 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700">Get in touch</a>
+          </div>
+          <div class="mt-6 text-xs text-zinc-500 dark:text-zinc-400">Bitrix24 • HubSpot • Salesforce • Make/Zapier • Telephony • Property portals</div>
+        </div>
+        <div class="bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6">
+          <h3 class="font-semibold">What I cover</h3>
+          <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+            <li class="flex items-start gap-2"><span>✅</span>Lead capture & routing</li>
+            <li class="flex items-start gap-2"><span>✅</span>Lead scoring & qualification</li>
+            <li class="flex items-start gap-2"><span>✅</span>Sales funnels by lead type</li>
+            <li class="flex items-start gap-2"><span>✅</span>Automations & SLAs</li>
+            <li class="flex items-start gap-2"><span>✅</span>Dashboards & insights</li>
+            <li class="flex items-start gap-2"><span>✅</span>Data integrity & governance</li>
+            <li class="flex items-start gap-2"><span>✅</span>Training & enablement</li>
+            <li class="flex items-start gap-2"><span>✅</span>System administration</li>
+          </ul>
+        </div>
       </div>
     </div>
-    <nav class="hidden md:flex items-center gap-5 text-sm">
-      <a href="/" class="hover:opacity-80">Overview</a>
-      <a href="/pipelines/" class="hover:opacity-80">Pipelines</a>
-      <a href="/automations/" class="hover:opacity-80">Automations</a>
-      <a href="{{ site.demo_url }}" target="_blank" rel="noopener" class="hover:opacity-80">Bitrix Demo</a>
-      <a href="/analytics/" class="hover:opacity-80">Analytics</a>
-      <a href="/data-model/" class="hover:opacity-80">Data Model</a>
-      <a href="/governance/" class="hover:opacity-80">Admin</a>
-      <a href="/training/" class="hover:opacity-80">Training</a>
-      <a href="/plan-90/" class="hover:opacity-80">90‑Day Plan</a>
-      <a href="/contact/" class="hover:opacity-80">Contact</a>
-    </nav>
-    <button id="themeToggle" class="rounded-xl px-3 py-2 text-xs border border-zinc-200 dark:border-zinc-700">Toggle theme</button>
-  </div>
-</header>
+  </section>
 
+  <!-- Pipelines -->
+  <section id="pipelines" class="container-narrow px-4 py-14">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl md:text-3xl font-bold">Pipelines & Sales Funnels</h2>
+      <div class="text-sm text-zinc-500 dark:text-zinc-400">Residential · Commercial · Leasing</div>
+    </div>
+    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Stage-specific required fields keep data consistent and reporting clean.</p>
 
-<!-- FILE: _includes/footer.html -->
-<footer class="py-10 text-center text-xs text-zinc-500 dark:text-zinc-400">
-  <p>© <span id="year"></span> {{ site.name }} — {{ site.role }}</p>
-</footer>
-
-
-<!-- FILE: assets/style.css -->
-html { scroll-behavior: smooth; }
-.glass { backdrop-filter: saturate(140%) blur(8px); background: rgba(255,255,255,0.7); }
-@media (prefers-color-scheme: dark) { .glass { background: rgba(17,24,39,0.6); } }
-
-
-<!-- FILE: assets/app.js -->
-// Theme toggle + year
-const toggle = document.getElementById('themeToggle');
-if (toggle) toggle.addEventListener('click', () => document.documentElement.classList.toggle('dark'));
-const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-// Download scoring JSON (if present)
-window.downloadScore = function(){
-  const el = document.getElementById('scoreJson'); if(!el) return;
-  const blob = new Blob([el.innerText], { type: 'application/json' });
-  const url = URL.createObjectURL(blob); const a = document.createElement('a');
-  a.href = url; a.download = 'lead-scoring-config.json'; a.click(); URL.revokeObjectURL(url);
-}
-
-// Charts: only run on pages that have canvases
-(function(){
-  const src = document.getElementById('chartSources');
-  if (src) new Chart(src, { type: 'bar', data: { labels: ['Website','Portals','Referrals','Paid Ads','Social'], datasets: [{ label: 'Leads', data: [320,460,120,380,210] }] }, options: { responsive: true, plugins: { legend: { display: true } } } });
-  const res = document.getElementById('chartFunnelRes');
-  if (res) new Chart(res, { type: 'bar', data: { labels: ['New','Qualified','Viewing','Offer','Won'], datasets: [{ label: 'Count', data: [1000,520,260,120,60] }] }, options: { responsive: true, plugins: { legend: { display: false } } } });
-  const sla = document.getElementById('chartSLA');
-  if (sla) new Chart(sla, { type: 'doughnut', data: { labels: ['On-time','Late'], datasets: [{ label: 'SLA', data: [85,15] }] }, options: { cutout: '70%', plugins: { legend: { position: 'bottom' } } } });
-  const cyc = document.getElementById('chartCycle');
-  if (cyc) new Chart(cyc, { type: 'line', data: { labels: ['Qualification','Viewing','Proposal','Approvals','Lease'], datasets: [{ label: 'Days in Stage', data: [7,12,10,21,5], tension: 0.35 }] }, options: { responsive: true } });
-})();
-
-
-<!-- FILE: index.md -->
----
-layout: default
-title: Overview
-permalink: /
----
-<div class="relative overflow-hidden">
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl opacity-20 bg-indigo-400"></div>
-    <div class="absolute -bottom-48 -right-40 w-[34rem] h-[34rem] rounded-full blur-3xl opacity-20 bg-fuchsia-500"></div>
-  </div>
-  <div class="grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">{{ site.name }} — {{ site.role }}</h1>
-      <p class="mt-4 text-zinc-600 dark:text-zinc-300 text-lg">Commercial & Residential pipelines, lead scoring, automations, reporting, and governance—designed to reduce response time, lift conversion, and keep data clean.</p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/pipelines/" class="px-4 py-2 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">View Work</a>
-        <a href="/contact/" class="px-4 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700">Get in touch</a>
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold text-lg">Residential Sales</h3>
+        <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
+          <li>New Lead → <span class="text-zinc-500">auto-assign + SLA 30m</span></li>
+          <li>Qualification → <span class="text-zinc-500">budget, location, beds, timeline</span></li>
+          <li>Property Match → <span class="text-zinc-500">send curated shortlist</span></li>
+          <li>Viewing Scheduled</li>
+          <li>Offer & Negotiation</li>
+          <li>Agreement/Contract</li>
+          <li>Won / Lost (reason required)</li>
+        </ol>
       </div>
-      <div class="mt-6 text-xs text-zinc-500 dark:text-zinc-400">Bitrix24 • HubSpot • Salesforce • Zapier/Make • Twilio/Telephony • Portal feeds</div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold text-lg">Residential Leasing</h3>
+        <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
+          <li>New Inquiry</li>
+          <li>Qualification & Docs</li>
+          <li>Viewing</li>
+          <li>Application & Screening</li>
+          <li>Offer / Reservation</li>
+          <li>Contract & Move-in</li>
+          <li>Won / Lost</li>
+        </ol>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold text-lg">Commercial Sales</h3>
+        <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
+          <li>Inbound / Prospect</li>
+          <li>Qualification (use case, size, power, zoning)</li>
+          <li>Viewing / Site Visit</li>
+          <li>LOI / MOU</li>
+          <li>Legal & Approvals</li>
+          <li>Contract / Transfer</li>
+          <li>Won / Lost</li>
+        </ol>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold text-lg">Commercial Leasing</h3>
+        <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
+          <li>Inbound / Outreach</li>
+          <li>Qualification (trade license, timeline, fit)</li>
+          <li>Viewing / Technical</li>
+          <li>Proposal & Negotiation</li>
+          <li>HOA / Landlord Approvals</li>
+          <li>Lease Execution</li>
+          <li>Won / Lost</li>
+        </ol>
+      </div>
     </div>
-    <div class="bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6">
-      <h3 class="font-semibold">What I cover</h3>
-      <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-        <li class="flex items-start gap-2"><span>✅</span>Lead capture & routing</li>
-        <li class="flex items-start gap-2"><span>✅</span>Lead scoring & qualification</li>
-        <li class="flex items-start gap-2"><span>✅</span>Sales funnels by lead type</li>
-        <li class="flex items-start gap-2"><span>✅</span>Automations & SLAs</li>
-        <li class="flex items-start gap-2"><span>✅</span>Dashboards & insights</li>
-        <li class="flex items-start gap-2"><span>✅</span>Data integrity & governance</li>
-        <li class="flex items-start gap-2"><span>✅</span>Training & enablement</li>
-        <li class="flex items-start gap-2"><span>✅</span>System administration</li>
-      </ul>
+
+    <div class="mt-8 rounded-2xl border border-amber-300/40 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-700 p-5">
+      <h4 class="font-semibold">Stage-Required Fields</h4>
+      <div class="mt-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <p class="font-medium">Qualification</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
+            <li>Budget / Rent range</li>
+            <li>Bedrooms / Sqft / Power</li>
+            <li>Move-in timeline</li>
+            <li>Lead Type & Source</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <p class="font-medium">Viewing</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
+            <li>Viewing date/time</li>
+            <li>Property ID</li>
+            <li>Agent assigned</li>
+            <li>Attendees</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <p class="font-medium">Offer</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
+            <li>Offer amount / terms</li>
+            <li>Docs received</li>
+            <li>Decision-makers</li>
+            <li>Probability %</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <p class="font-medium">Closed</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
+            <li>Reason Won/Lost</li>
+            <li>Commission</li>
+            <li>Marketing source</li>
+            <li>Cycle time (auto)</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
+  <!-- Automations -->
+  <section id="automations" class="container-narrow px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-bold">Automation & SLA Design</h2>
+    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Robots, triggers, and queues that reduce latency and enforce quality—Bitrix24‑ready patterns.</p>
 
-<!-- FILE: pipelines.md -->
----
-layout: default
-title: Pipelines & Sales Funnels
-permalink: /pipelines/
----
-<div class="flex items-center justify-between">
-  <h2 class="text-2xl md:text-3xl font-bold">Pipelines & Sales Funnels</h2>
-  <div class="text-sm text-zinc-500 dark:text-zinc-400">Residential · Commercial · Leasing</div>
-</div>
-<p class="mt-3 text-zinc-600 dark:text-zinc-300">Tailored funnels for different lead types and transaction models. Stage-specific required fields keep data clean and reporting consistent.</p>
-
-<div class="mt-8 grid md:grid-cols-2 gap-6">
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold text-lg">Residential Sales</h3>
-    <p class="text-sm text-zinc-600 dark:text-zinc-400">Owner/Buyer representation</p>
-    <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
-      <li>New Lead → <span class="text-zinc-500">auto-assign + SLA 30m</span></li>
-      <li>Qualification → <span class="text-zinc-500">budget, location, beds, timeline</span></li>
-      <li>Property Match → <span class="text-zinc-500">send curated shortlist</span></li>
-      <li>Viewing Scheduled</li>
-      <li>Offer & Negotiation</li>
-      <li>Agreement/Contract</li>
-      <li>Won / Lost (reason required)</li>
-    </ol>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold text-lg">Residential Leasing</h3>
-    <p class="text-sm text-zinc-600 dark:text-zinc-400">Tenancy cycle</p>
-    <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
-      <li>New Inquiry</li>
-      <li>Qualification & Docs</li>
-      <li>Viewing</li>
-      <li>Application & Screening</li>
-      <li>Offer / Reservation</li>
-      <li>Contract & Move-in</li>
-      <li>Won / Lost</li>
-    </ol>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold text-lg">Commercial Sales</h3>
-    <p class="text-sm text-zinc-600 dark:text-zinc-400">LOI/MOU heavy with stakeholder mapping</p>
-    <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
-      <li>Inbound / Prospect</li>
-      <li>Qualification (use case, size, power, zoning)</li>
-      <li>Viewing / Site Visit</li>
-      <li>LOI / MOU</li>
-      <li>Legal & Approvals</li>
-      <li>Contract / Transfer</li>
-      <li>Won / Lost</li>
-    </ol>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold text-lg">Commercial Leasing</h3>
-    <p class="text-sm text-zinc-600 dark:text-zinc-400">Multi-party, often longer cycles</p>
-    <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
-      <li>Inbound / Outreach</li>
-      <li>Qualification (trade license, timeline, fit)</li>
-      <li>Viewing / Technical</li>
-      <li>Proposal & Negotiation</li>
-      <li>HOA / Landlord Approvals</li>
-      <li>Lease Execution</li>
-      <li>Won / Lost</li>
-    </ol>
-  </div>
-</div>
-
-<div class="mt-8 rounded-2xl border border-amber-300/40 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-700 p-5">
-  <h4 class="font-semibold">Stage-Required Fields (examples)</h4>
-  <div class="mt-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
-      <p class="font-medium">Qualification</p>
-      <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
-        <li>Budget / Rent range</li>
-        <li>Bedrooms / Sqft / Power</li>
-        <li>Move-in timeline</li>
-        <li>Lead Type & Source</li>
-      </ul>
+    <div class="mt-8 grid lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Lead Capture & Routing</h3>
+        <ul class="mt-2 text-sm space-y-2">
+          <li>Form/portal/webhook → <strong>Validate</strong> → <strong>Enrich</strong> (email/phone check)</li>
+          <li><strong>Dedupe</strong> against Contacts/Leads (fuzzy phone/email)</li>
+          <li>Auto <strong>assign</strong> by team, source, geo, property class</li>
+          <li>Start <strong>SLA timer</strong>: 30m (residential) / 1h (commercial)</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Nurture & Follow‑up</h3>
+        <ul class="mt-2 text-sm space-y-2">
+          <li>No contact in 24h → create task + notify team lead</li>
+          <li>Viewing scheduled → SMS/iCal reminders</li>
+          <li>Offer created → auto‑generate quote doc & checklist</li>
+          <li>Idle 7 days → escalate and recycle to nurture</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Post‑Close & Handoff</h3>
+        <ul class="mt-2 text-sm space-y-2">
+          <li>On Won → tasks for compliance & payout</li>
+          <li>Closed Lost → capture reason & trigger remarketing</li>
+          <li>Lease expiry reminders at T‑90/T‑60/T‑30</li>
+          <li>CSAT pulse 3 days after move‑in</li>
+        </ul>
+      </div>
     </div>
-    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
-      <p class="font-medium">Viewing</p>
-      <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
-        <li>Viewing date/time</li>
-        <li>Property ID</li>
-        <li>Agent assigned</li>
-        <li>Attendees</li>
-      </ul>
-    </div>
-    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
-      <p class="font-medium">Offer</p>
-      <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
-        <li>Offer amount / terms</li>
-        <li>Docs received</li>
-        <li>Decision-makers</li>
-        <li>Probability %</li>
-      </ul>
-    </div>
-    <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
-      <p class="font-medium">Closed</p>
-      <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
-        <li>Reason Won/Lost</li>
-        <li>Commission</li>
-        <li>Marketing source</li>
-        <li>Cycle time (auto)</li>
-      </ul>
-    </div>
-  </div>
-</div>
 
-
-<!-- FILE: automations.md -->
----
-layout: default
-title: Automation & SLA Design
-permalink: /automations/
----
-<p class="text-zinc-600 dark:text-zinc-300">Robots, triggers, and queues that reduce latency and enforce quality—Bitrix24-ready patterns.</p>
-<div class="mt-8 grid lg:grid-cols-3 gap-6">
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Lead Capture & Routing</h3>
-    <ul class="mt-2 text-sm space-y-2">
-      <li>• Form/portal/webhook → <strong>Validate</strong> → <strong>Enrich</strong> (email/phone check)</li>
-      <li>• <strong>Dedupe</strong> against Contacts/Leads (fuzzy phone/email)</li>
-      <li>• Auto <strong>assign</strong> by team, source, geo, property class</li>
-      <li>• Start <strong>SLA timer</strong>: response due in 30m (residential), 1h (commercial)</li>
-    </ul>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Nurture & Follow-up</h3>
-    <ul class="mt-2 text-sm space-y-2">
-      <li>• No contact in 24h → create task + notify team lead</li>
-      <li>• Viewing scheduled → send SMS/iCal reminders to client & agent</li>
-      <li>• Offer created → auto-generate quote doc & checklist</li>
-      <li>• Idle 7 days → escalate and recycle to nurture list</li>
-    </ul>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Post-Close & Handoff</h3>
-    <ul class="mt-2 text-sm space-y-2">
-      <li>• On Won → tasks for compliance & payout</li>
-      <li>• Closed Lost → capture reason & trigger remarketing</li>
-      <li>• Lease expiry reminders at T-90/T-60/T-30</li>
-      <li>• Client satisfaction pulse (CSAT) 3 days after move-in</li>
-    </ul>
-  </div>
-</div>
-
-<div class="mt-8 grid md:grid-cols-2 gap-6">
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Automated Lead Scoring (example)</h3>
-    <p class="text-sm text-zinc-600 dark:text-zinc-400">Weights can be tuned per pipeline; thresholds drive prioritization and routes.</p>
-    <div class="mt-3 text-sm bg-zinc-50 dark:bg-zinc-800 rounded-xl p-4 overflow-auto">
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Automated Lead Scoring (example)</h3>
+        <p class="text-sm text-zinc-600 dark:text-zinc-400">Weights per pipeline; thresholds drive prioritization & routes.</p>
+        <div class="mt-3 text-sm bg-zinc-50 dark:bg-zinc-800 rounded-xl p-4 overflow-auto">
 <pre><code id="scoreJson">{
   "fit": {
     "budget_to_ask_ratio": {"weight": 30, "breakpoints": [[0.7, 0], [0.9, 10], [1.1, 20], [1.3, 30]]},
@@ -325,58 +241,55 @@ permalink: /automations/
   },
   "thresholds": {"A": 70, "B": 50, "C": 30}
 }</code></pre>
-      <button onclick="downloadScore()" class="mt-3 text-xs px-3 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700">Download JSON</button>
+          <button onclick="downloadScore()" class="mt-3 text-xs px-3 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700">Download JSON</button>
+        </div>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Example Bitrix24 Robots & Triggers</h3>
+        <ul class="mt-2 text-sm space-y-2">
+          <li><strong>Trigger:</strong> Incoming call/email → move to <em>Qualification</em></li>
+          <li><strong>Robot @ New:</strong> Assign by queue; set SLA; send intro message</li>
+          <li><strong>Robot @ Viewing:</strong> Reminder tasks; calendar invites</li>
+          <li><strong>Robot @ Offer:</strong> Create quote; notify manager for approval</li>
+          <li><strong>Robot @ Idle:</strong> If no activity 3 days → escalate to team lead</li>
+          <li><strong>Robot @ Won:</strong> Create payout approval + finance notification</li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Example Bitrix24 Robots & Triggers</h3>
-    <ul class="mt-2 text-sm space-y-2">
-      <li>• <strong>Trigger:</strong> Incoming call/email → move to <em>Qualification</em></li>
-      <li>• <strong>Robot @ New:</strong> Assign by queue; set SLA; send intro message</li>
-      <li>• <strong>Robot @ Viewing:</strong> Create reminder tasks; send calendar invites</li>
-      <li>• <strong>Robot @ Offer:</strong> Create quote; notify manager for approval</li>
-      <li>• <strong>Robot @ Idle:</strong> If no activity 3 days → escalate to team lead</li>
-      <li>• <strong>Robot @ Won:</strong> Create payout approval + finance notification</li>
-    </ul>
-  </div>
-</div>
+  </section>
 
+  <!-- Analytics -->
+  <section id="analytics" class="container-narrow px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-bold">Dashboards & Insights</h2>
+    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Demo charts below use sample data.</p>
 
-<!-- FILE: analytics.md -->
----
-layout: default
-title: Dashboards & Insights
-permalink: /analytics/
----
-<p class="text-zinc-600 dark:text-zinc-300">Live views that matter to marketing, sales, and leadership. Demo charts below use sample data.</p>
-<div class="mt-8 grid lg:grid-cols-3 gap-6">
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Lead Source Performance</h3>
-    <canvas id="chartSources" height="200"></canvas>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Funnel Conversion (Residential)</h3>
-    <canvas id="chartFunnelRes" height="200"></canvas>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">SLA Compliance</h3>
-    <canvas id="chartSLA" height="200"></canvas>
-  </div>
-</div>
-<div class="mt-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-  <h3 class="font-semibold">Cycle Time by Stage (Commercial Leasing)</h3>
-  <canvas id="chartCycle" height="120"></canvas>
-</div>
+    <div class="mt-8 grid lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Lead Source Performance</h3>
+        <canvas id="chartSources" height="200"></canvas>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Funnel Conversion (Residential)</h3>
+        <canvas id="chartFunnelRes" height="200"></canvas>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">SLA Compliance</h3>
+        <canvas id="chartSLA" height="200"></canvas>
+      </div>
+    </div>
 
+    <div class="mt-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+      <h3 class="font-semibold">Cycle Time by Stage (Commercial Leasing)</h3>
+      <canvas id="chartCycle" height="120"></canvas>
+    </div>
+  </section>
 
-<!-- FILE: data-model.md -->
----
-layout: default
-title: Data Model & Entities
-permalink: /data-model/
----
-<p class="text-zinc-600 dark:text-zinc-300">Simple, extensible structure for clean reporting and automation.</p>
-<div class="mt-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900 overflow-auto">
+  <!-- Data Model -->
+  <section id="data-model" class="container-narrow px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-bold">Data Model & Entities</h2>
+    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Simple, extensible structure for clean reporting and automation.</p>
+
+    <div class="mt-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900 overflow-auto">
 <div class="mermaid" aria-label="CRM data model diagram">
 flowchart LR
   A[Lead] -- qualifies --> B(Deal)
@@ -391,166 +304,191 @@ flowchart LR
   J -- part of --> K[Team]
   B -- payout --> L[Commission]
 </div>
-</div>
-<div class="mt-6 grid md:grid-cols-2 gap-6 text-sm">
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Segmentation & Tagging</h3>
-    <ul class="mt-2 space-y-2">
-      <li>• Lead Type: Buyer, Seller, Tenant, Landlord, Investor</li>
-      <li>• Property Class: Apartment, Villa/Townhouse, Office, Retail, Industrial, Land</li>
-      <li>• Geo: Neighborhood / Community</li>
-      <li>• Budget Brackets & Bedrooms/Sqft</li>
-      <li>• Source & Campaign UTM</li>
-    </ul>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Dedupe & Data Quality</h3>
-    <ul class="mt-2 space-y-2">
-      <li>• Unique keys: phone E.164, email (lowercased)</li>
-      <li>• Fuzzy match window (phone edit distance ≤1)</li>
-      <li>• Stage-required fields & validation rules</li>
-      <li>• Monthly audits, field health dashboard</li>
-    </ul>
-  </div>
-</div>
-
-
-<!-- FILE: governance.md -->
----
-layout: default
-title: System Administration & Governance
-permalink: /governance/
----
-<p class="text-zinc-600 dark:text-zinc-300">Security, roles, rollout discipline, and continuous improvement.</p>
-<div class="mt-6 grid lg:grid-cols-3 gap-6 text-sm">
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Access & Roles</h3>
-    <ul class="mt-2 space-y-2">
-      <li>• Role-based access (Agent, TL, Manager, Finance, Marketing)</li>
-      <li>• Least-privilege defaults; approval for exports</li>
-      <li>• Private pipelines for high-value deals</li>
-    </ul>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Change Management</h3>
-    <ul class="mt-2 space-y-2">
-      <li>• DEV → UAT → PROD promotion</li>
-      <li>• Versioned automations; rollback plan</li>
-      <li>• Monthly backlog grooming with stakeholders</li>
-    </ul>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Optimization</h3>
-    <ul class="mt-2 space-y-2">
-      <li>• Pipeline audits (stale stage %, velocity)</li>
-      <li>• Attribution tuning & UTM hygiene</li>
-      <li>• New modules/integrations evaluation</li>
-    </ul>
-  </div>
-</div>
-
-
-<!-- FILE: training.md -->
----
-layout: default
-title: Training, SOPs & Playbooks
-permalink: /training/
----
-<p class="text-zinc-600 dark:text-zinc-300">Short, role-based materials that accelerate adoption and compliance.</p>
-<div class="mt-6 grid md:grid-cols-2 gap-6 text-sm">
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Agent Onboarding (sample syllabus)</h3>
-    <ol class="mt-2 list-decimal list-inside space-y-1">
-      <li>CRM basics & mobile app</li>
-      <li>Working your Kanban & next actions</li>
-      <li>Logging calls/emails; using templates</li>
-      <li>Viewing scheduling & client comms</li>
-      <li>Offer process & approvals</li>
-      <li>Post-close tasks & CSAT</li>
-    </ol>
-  </div>
-  <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
-    <h3 class="font-semibold">Manager Toolkit</h3>
-    <ul class="mt-2 space-y-2">
-      <li>• Daily SLA report & stale deals</li>
-      <li>• Weekly pipeline review agenda</li>
-      <li>• Monthly attribution & CPL vs CVR</li>
-      <li>• Quarterly automation audit</li>
-    </ul>
-  </div>
-</div>
-
-
-<!-- FILE: plan-90.md -->
----
-layout: default
-title: 90‑Day Plan (Real Estate CRM)
-permalink: /plan-90/
----
-<div class="prose prose-zinc dark:prose-invert max-w-none">
-  <h3>Goal</h3>
-  <p>Lift lead response speed, pipeline conversion, and data quality while aligning marketing, sales, and operations.</p>
-  <h4>Days 0–30: Assess & Stabilize</h4>
-  <ul>
-    <li>Audit pipelines, fields, automations, and permissions; document pain points.</li>
-    <li>Define qualification checklist per pipeline; enforce stage-required fields.</li>
-    <li>Implement lead routing & SLA timers; stand up daily SLA report.</li>
-  </ul>
-  <h4>Days 31–60: Automate & Enable</h4>
-  <ul>
-    <li>Deploy nurture sequences and idle/escalation rules.</li>
-    <li>Build dashboards: lead source, funnel, agent productivity, cycle time.</li>
-    <li>Train agents & managers; publish SOPs; create templates (emails, SMS).</li>
-  </ul>
-  <h4>Days 61–90: Optimize & Scale</h4>
-  <ul>
-    <li>Attribution hygiene; UTM standards and campaign reporting.</li>
-    <li>A/B test scoring thresholds; refine routing by performance.</li>
-    <li>Integrate portals/telephony; evaluate new modules; plan Q2 backlog.</li>
-  </ul>
-</div>
-
-
-<!-- FILE: contact.md -->
----
-layout: default
-title: Contact
-permalink: /contact/
----
-<div class="grid md:grid-cols-2 gap-8 items-start">
-  <div>
-    <h2 class="text-2xl md:text-3xl font-bold">Let’s talk</h2>
-    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Open to discussing your current stack, pain points, and a 90‑day plan to lift conversion and speed.</p>
-    <div class="mt-5 text-sm space-y-1">
-      <p><strong>Email:</strong> <a class="underline" href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-      <p><strong>Phone:</strong> <a class="underline" href="tel:{{ site.phone }}">{{ site.phone }}</a></p>
-      <p><strong>LinkedIn:</strong> <a class="underline" href="{{ site.linkedin }}">{{ site.linkedin }}</a></p>
-      <p><strong>Location:</strong> {{ site.location }} · Open to hybrid/remote</p>
-      <p><strong>Resume:</strong> <a class="underline" href="{{ site.resume_url }}">Download PDF</a></p>
     </div>
-  </div>
-  <div class="bg-white/70 dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5">
-    <h3 class="font-semibold">Role Match Checklist</h3>
-    <ul class="mt-2 text-sm space-y-2">
-      <li>☑ Lead management & funnel optimization</li>
-      <li>☑ Workflow design & automations</li>
-      <li>☑ Data integrity & reporting</li>
-      <li>☑ Marketing & sales alignment</li>
-      <li>☑ Administration & optimization</li>
-      <li>☑ Team training & enablement</li>
-    </ul>
-  </div>
-</div>
 
+    <div class="mt-6 grid md:grid-cols-2 gap-6 text-sm">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Segmentation & Tagging</h3>
+        <ul class="mt-2 space-y-2">
+          <li>Lead Type: Buyer, Seller, Tenant, Landlord, Investor</li>
+          <li>Property Class: Apartment, Villa/Townhouse, Office, Retail, Industrial, Land</li>
+          <li>Geo: Neighborhood / Community</li>
+          <li>Budget Brackets & Bedrooms/Sqft</li>
+          <li>Source & Campaign UTM</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Dedupe & Data Quality</h3>
+        <ul class="mt-2 space-y-2">
+          <li>Unique keys: phone E.164, email (lowercased)</li>
+          <li>Fuzzy match window (phone edit distance ≤1)</li>
+          <li>Stage-required fields & validation rules</li>
+          <li>Monthly audits, field health dashboard</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<!-- FILE: README.md -->
-# Real Estate CRM Portfolio — {{ site.name }}
+  <!-- Governance -->
+  <section id="governance" class="container-narrow px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-bold">System Administration & Governance</h2>
+    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Security, roles, rollout discipline, and continuous improvement.</p>
 
-**How to publish**
-1. Create a new **public** repo (e.g., `real-estate-crm-portfolio`).
-2. Add these files with the same folder structure.
-3. Commit & push to `main`.
-4. In **Settings → Pages**: Build and deployment → **Deploy from a branch** → Branch: `main` / root.
-5. Your site → `https://{{ site.github_username }}.github.io/real-estate-crm-portfolio/`.
+    <div class="mt-6 grid lg:grid-cols-3 gap-6 text-sm">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Access & Roles</h3>
+        <ul class="mt-2 space-y-2">
+          <li>Role-based access (Agent, TL, Manager, Finance, Marketing)</li>
+          <li>Least‑privilege defaults; approval for exports</li>
+          <li>Private pipelines for high‑value deals</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Change Management</h3>
+        <ul class="mt-2 space-y-2">
+          <li>DEV → UAT → PROD promotion</li>
+          <li>Versioned automations; rollback plan</li>
+          <li>Monthly backlog grooming with stakeholders</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Optimization</h3>
+        <ul class="mt-2 space-y-2">
+          <li>Pipeline audits (stale stage %, velocity)</li>
+          <li>Attribution tuning & UTM hygiene</li>
+          <li>New modules/integrations evaluation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-Update your details once in **`_config.yml`** and they populate across all pages.
+  <!-- Training -->
+  <section id="training" class="container-narrow px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-bold">Training, SOPs & Playbooks</h2>
+    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Short, role-based materials that accelerate adoption and compliance.</p>
+
+    <div class="mt-6 grid md:grid-cols-2 gap-6 text-sm">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Agent Onboarding (sample syllabus)</h3>
+        <ol class="mt-2 list-decimal list-inside space-y-1">
+          <li>CRM basics & mobile app</li>
+          <li>Working Kanban & next actions</li>
+          <li>Logging calls/emails; using templates</li>
+          <li>Viewing scheduling & client comms</li>
+          <li>Offer process & approvals</li>
+          <li>Post‑close tasks & CSAT</li>
+        </ol>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Manager Toolkit</h3>
+        <ul class="mt-2 space-y-2">
+          <li>Daily SLA report & stale deals</li>
+          <li>Weekly pipeline review agenda</li>
+          <li>Monthly attribution & CPL vs CVR</li>
+          <li>Quarterly automation audit</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 90-Day Plan -->
+  <section id="plan-90" class="container-narrow px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-bold">90‑Day Plan (Real Estate CRM)</h2>
+    <div class="prose prose-zinc dark:prose-invert max-w-none">
+      <h3>Goal</h3>
+      <p>Lift lead response speed, pipeline conversion, and data quality while aligning marketing, sales, and operations.</p>
+      <h4>Days 0–30: Assess & Stabilize</h4>
+      <ul>
+        <li>Audit pipelines, fields, automations, and permissions; document pain points.</li>
+        <li>Define qualification checklist per pipeline; enforce stage‑required fields.</li>
+        <li>Implement lead routing & SLA timers; stand up daily SLA report.</li>
+      </ul>
+      <h4>Days 31–60: Automate & Enable</h4>
+      <ul>
+        <li>Deploy nurture sequences and idle/escalation rules.</li>
+        <li>Build dashboards: lead source, funnel, agent productivity, cycle time.</li>
+        <li>Train agents & managers; publish SOPs; create templates (emails, SMS).</li>
+      </ul>
+      <h4>Days 61–90: Optimize & Scale</h4>
+      <ul>
+        <li>Attribution hygiene; UTM standards and campaign reporting.</li>
+        <li>A/B test scoring thresholds; refine routing by performance.</li>
+        <li>Integrate portals/telephony; evaluate new modules; plan Q2 backlog.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container-narrow px-4 py-16">
+    <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-900 dark:to-zinc-900/40">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Let’s talk</h2>
+          <p class="mt-3 text-zinc-600 dark:text-zinc-300">Open to discussing your current stack, pain points, and a 90‑day plan to lift conversion and speed.</p>
+          <div class="mt-5 text-sm space-y-1">
+            <p><strong>Email:</strong> <a class="underline" href="mailto:hazemsabu20@gmail.com">hazemsabu20@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a class="underline" href="tel:+971585560929">+971585560929</a></p>
+            <p><strong>LinkedIn:</strong> <a class="underline" href="https://linkedin.com/in/hazem-sabu">linkedin.com/in/hazem-sabu</a></p>
+            <p><strong>Location:</strong> Dubai · Open to hybrid/remote</p>
+          </div>
+        </div>
+        <div class="bg-white/70 dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-5">
+          <h3 class="font-semibold">Role Match Checklist</h3>
+          <ul class="mt-2 text-sm space-y-2">
+            <li>☑ Lead management & funnel optimization</li>
+            <li>☑ Workflow design & automations</li>
+            <li>☑ Data integrity & reporting</li>
+            <li>☑ Marketing & sales alignment</li>
+            <li>☑ Administration & optimization</li>
+            <li>☑ Team training & enablement</li>
+          </ul>
+          <div class="mt-4 flex gap-3">
+            <a href="#overview" class="px-4 py-2 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">Back to top</a>
+            <a href="https://hsk98.github.io/Bitrix-demo" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700">Bitrix Demo ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-xs text-zinc-500 dark:text-zinc-400">
+    <p>© <span id="year"></span> Hazem Sabu — CRM Manager (Real Estate)</p>
+  </footer>
+
+  <script>
+    // Theme toggle with a11y + persistence
+    const toggle = document.getElementById('themeToggle');
+    if (toggle) {
+      const saved = localStorage.getItem('theme');
+      if(saved === 'dark'){ document.documentElement.classList.add('dark'); toggle.setAttribute('aria-pressed','true'); }
+      toggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    }
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Download scoring JSON (if present)
+    function downloadScore(){
+      const el = document.getElementById('scoreJson'); if(!el) return;
+      const blob = new Blob([el.innerText], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'lead-scoring-config.json'; a.click();
+      URL.revokeObjectURL(url);
+    }
+    window.downloadScore = downloadScore;
+
+    // Charts
+    const sourcesCtx = document.getElementById('chartSources');
+    if (sourcesCtx) new Chart(sourcesCtx, { type: 'bar', data: { labels: ['Website', 'Portals', 'Referrals', 'Paid Ads', 'Social'], datasets: [{ label: 'Leads', data: [320, 460, 120, 380, 210] }] }, options: { responsive: true } });
+    const funnelCtx = document.getElementById('chartFunnelRes');
+    if (funnelCtx) new Chart(funnelCtx, { type: 'bar', data: { labels: ['New','Qualified','Viewing','Offer','Won'], datasets: [{ label: 'Count', data: [1000,520,260,120,60] }] }, options: { responsive: true, plugins: { legend: { display: false } } } });
+    const slaCtx = document.getElementById('chartSLA');
+    if (slaCtx) new Chart(slaCtx, { type: 'doughnut', data: { labels: ['On-time','Late'], datasets: [{ label: 'SLA', data: [85,15] }] }, options: { cutout: '70%', plugins: { legend: { position: 'bottom' } } } });
+    const cycleCtx = document.getElementById('chartCycle');
+    if (cycleCtx) new Chart(cycleCtx, { type: 'line', data: { labels: ['Qualification','Viewing','Proposal','Approvals','Lease'], datasets: [{ label: 'Days in Stage', data: [7,12,10,21,5], tension: 0.35 }] }, options: { responsive: true } });
+  </script>
+</body>
+</html>
