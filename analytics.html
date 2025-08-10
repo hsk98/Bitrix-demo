@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hazem Sabu — CRM Manager · Real Estate</title>
+  <title>Hazem Sabu — Dashboards & Insights</title>
   <meta name="description" content="Commercial & Residential CRM: pipelines, automations, data, reporting, and adoption." />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000'/><text x='50' y='58' font-size='54' text-anchor='middle' fill='white' font-family='Arial'>CRM</text></svg>">
@@ -63,78 +63,34 @@
     </nav>
   </header>
 
-  <!-- Overview / Hero -->
-  <section id="overview" class="relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl opacity-20 bg-indigo-400"></div>
-      <div class="absolute -bottom-48 -right-40 w-[34rem] h-[34rem] rounded-full blur-3xl opacity-20 bg-fuchsia-500"></div>
-    </div>
+    <!-- Analytics -->
+  <section id="analytics" class="container-narrow px-4 py-14">
+    <h2 class="text-2xl md:text-3xl font-bold">Dashboards & Insights</h2>
+    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Demo charts below use sample data.</p>
 
-    <div class="container-narrow px-4 py-16">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Real Estate CRM Portfolio</h1>
-          <p class="mt-4 text-zinc-600 dark:text-zinc-300 text-lg">Commercial & Residential pipelines, lead scoring, automations, reporting, and governance—designed to cut response time, improve conversion, and keep data clean.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="pipelines.html" class="px-4 py-2 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">View Work</a>
-            <a href="contact.html" class="px-4 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700">Get in touch</a>
-          </div>
-          <div class="mt-6 text-xs text-zinc-500 dark:text-zinc-400">Bitrix24 • HubSpot • Salesforce • Make/Zapier • Telephony • Property portals</div>
-        </div>
-        <div class="bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6">
-          <h3 class="font-semibold">What I cover</h3>
-          <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-            <li class="flex items-start gap-2"><span>✅</span>Lead capture & routing</li>
-            <li class="flex items-start gap-2"><span>✅</span>Lead scoring & qualification</li>
-            <li class="flex items-start gap-2"><span>✅</span>Sales funnels by lead type</li>
-            <li class="flex items-start gap-2"><span>✅</span>Automations & SLAs</li>
-            <li class="flex items-start gap-2"><span>✅</span>Dashboards & insights</li>
-            <li class="flex items-start gap-2"><span>✅</span>Data integrity & governance</li>
-            <li class="flex items-start gap-2"><span>✅</span>Training & enablement</li>
-            <li class="flex items-start gap-2"><span>✅</span>System administration</li>
-          </ul>
-        </div>
+    <div class="mt-8 grid lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Lead Source Performance</h3>
+        <canvas id="chartSources" height="200"></canvas>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">Funnel Conversion (Residential)</h3>
+        <canvas id="chartFunnelRes" height="200"></canvas>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold">SLA Compliance</h3>
+        <canvas id="chartSLA" height="200"></canvas>
       </div>
     </div>
-  </section>
 
-  <section class="container-narrow px-4 py-14">
-    <h2 class="text-2xl md:text-3xl font-bold">Explore the Portfolio</h2>
-    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a href="pipelines.html" class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900">
-        <h3 class="font-semibold">Pipelines</h3>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Residential and commercial sales funnels.</p>
-      </a>
-      <a href="automations.html" class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900">
-        <h3 class="font-semibold">Automations</h3>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Lead routing, SLAs and follow-ups.</p>
-      </a>
-      <a href="analytics.html" class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900">
-        <h3 class="font-semibold">Analytics</h3>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Dashboards and performance tracking.</p>
-      </a>
-      <a href="data-model.html" class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900">
-        <h3 class="font-semibold">Data Model</h3>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Entities, fields and relationships.</p>
-      </a>
-      <a href="admin.html" class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900">
-        <h3 class="font-semibold">Admin</h3>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Permissions and system settings.</p>
-      </a>
-      <a href="training.html" class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900">
-        <h3 class="font-semibold">Training</h3>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Onboarding and enablement.</p>
-      </a>
-      <a href="plan-90.html" class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900">
-        <h3 class="font-semibold">90‑Day Plan</h3>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Roadmap for the first quarter.</p>
-      </a>
-      <a href="contact.html" class="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900">
-        <h3 class="font-semibold">Contact</h3>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Get in touch to discuss your CRM.</p>
-      </a>
+    <div class="mt-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+      <h3 class="font-semibold">Cycle Time by Stage (Commercial Leasing)</h3>
+      <canvas id="chartCycle" height="120"></canvas>
     </div>
   </section>
+
+  <!-- Data Model -->
+
 
   <footer class="py-10 text-center text-xs text-zinc-500 dark:text-zinc-400">
     <p>© <span id="year"></span> Hazem Sabu — CRM Manager (Real Estate)</p>
