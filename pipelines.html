@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hazem Sabu — CRM Manager · Real Estate</title>
+  <title>Hazem Sabu — Pipelines & Sales Funnels</title>
   <meta name="description" content="Commercial & Residential CRM: pipelines, automations, data, reporting, and adoption." />
   <meta name="color-scheme" content="light dark" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000'/><text x='50' y='58' font-size='54' text-anchor='middle' fill='white' font-family='Arial'>CRM</text></svg>">
@@ -48,40 +48,110 @@
     </div>
   </header>
 
-  <!-- Overview / Hero -->
-  <section id="overview" class="relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full blur-3xl opacity-20 bg-indigo-400"></div>
-      <div class="absolute -bottom-48 -right-40 w-[34rem] h-[34rem] rounded-full blur-3xl opacity-20 bg-fuchsia-500"></div>
+    <!-- Pipelines -->
+  <section id="pipelines" class="container-narrow px-4 py-14">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl md:text-3xl font-bold">Pipelines & Sales Funnels</h2>
+      <div class="text-sm text-zinc-500 dark:text-zinc-400">Residential · Commercial · Leasing</div>
+    </div>
+    <p class="mt-3 text-zinc-600 dark:text-zinc-300">Stage-specific required fields keep data consistent and reporting clean.</p>
+
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold text-lg">Residential Sales</h3>
+        <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
+          <li>New Lead → <span class="text-zinc-500">auto-assign + SLA 30m</span></li>
+          <li>Qualification → <span class="text-zinc-500">budget, location, beds, timeline</span></li>
+          <li>Property Match → <span class="text-zinc-500">send curated shortlist</span></li>
+          <li>Viewing Scheduled</li>
+          <li>Offer & Negotiation</li>
+          <li>Agreement/Contract</li>
+          <li>Won / Lost (reason required)</li>
+        </ol>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold text-lg">Residential Leasing</h3>
+        <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
+          <li>New Inquiry</li>
+          <li>Qualification & Docs</li>
+          <li>Viewing</li>
+          <li>Application & Screening</li>
+          <li>Offer / Reservation</li>
+          <li>Contract & Move-in</li>
+          <li>Won / Lost</li>
+        </ol>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold text-lg">Commercial Sales</h3>
+        <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
+          <li>Inbound / Prospect</li>
+          <li>Qualification (use case, size, power, zoning)</li>
+          <li>Viewing / Site Visit</li>
+          <li>LOI / MOU</li>
+          <li>Legal & Approvals</li>
+          <li>Contract / Transfer</li>
+          <li>Won / Lost</li>
+        </ol>
+      </div>
+      <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-5 bg-white dark:bg-zinc-900">
+        <h3 class="font-semibold text-lg">Commercial Leasing</h3>
+        <ol class="mt-3 text-sm list-decimal list-inside space-y-1">
+          <li>Inbound / Outreach</li>
+          <li>Qualification (trade license, timeline, fit)</li>
+          <li>Viewing / Technical</li>
+          <li>Proposal & Negotiation</li>
+          <li>HOA / Landlord Approvals</li>
+          <li>Lease Execution</li>
+          <li>Won / Lost</li>
+        </ol>
+      </div>
     </div>
 
-    <div class="container-narrow px-4 py-16">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Real Estate CRM Portfolio</h1>
-          <p class="mt-4 text-zinc-600 dark:text-zinc-300 text-lg">Commercial & Residential pipelines, lead scoring, automations, reporting, and governance—designed to cut response time, improve conversion, and keep data clean.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="pipelines.html" class="px-4 py-2 rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">View Work</a>
-            <a href="contact.html" class="px-4 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700">Get in touch</a>
-          </div>
-          <div class="mt-6 text-xs text-zinc-500 dark:text-zinc-400">Bitrix24 • HubSpot • Salesforce • Make/Zapier • Telephony • Property portals</div>
+    <div class="mt-8 rounded-2xl border border-amber-300/40 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-700 p-5">
+      <h4 class="font-semibold">Stage-Required Fields</h4>
+      <div class="mt-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <p class="font-medium">Qualification</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
+            <li>Budget / Rent range</li>
+            <li>Bedrooms / Sqft / Power</li>
+            <li>Move-in timeline</li>
+            <li>Lead Type & Source</li>
+          </ul>
         </div>
-        <div class="bg-white/70 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6">
-          <h3 class="font-semibold">What I cover</h3>
-          <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-            <li class="flex items-start gap-2"><span>✅</span>Lead capture & routing</li>
-            <li class="flex items-start gap-2"><span>✅</span>Lead scoring & qualification</li>
-            <li class="flex items-start gap-2"><span>✅</span>Sales funnels by lead type</li>
-            <li class="flex items-start gap-2"><span>✅</span>Automations & SLAs</li>
-            <li class="flex items-start gap-2"><span>✅</span>Dashboards & insights</li>
-            <li class="flex items-start gap-2"><span>✅</span>Data integrity & governance</li>
-            <li class="flex items-start gap-2"><span>✅</span>Training & enablement</li>
-            <li class="flex items-start gap-2"><span>✅</span>System administration</li>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <p class="font-medium">Viewing</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
+            <li>Viewing date/time</li>
+            <li>Property ID</li>
+            <li>Agent assigned</li>
+            <li>Attendees</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <p class="font-medium">Offer</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
+            <li>Offer amount / terms</li>
+            <li>Docs received</li>
+            <li>Decision-makers</li>
+            <li>Probability %</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <p class="font-medium">Closed</p>
+          <ul class="mt-2 list-disc list-inside text-zinc-600 dark:text-zinc-300">
+            <li>Reason Won/Lost</li>
+            <li>Commission</li>
+            <li>Marketing source</li>
+            <li>Cycle time (auto)</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Automations -->
+
 
   <footer class="py-10 text-center text-xs text-zinc-500 dark:text-zinc-400">
     <p>© <span id="year"></span> Hazem Sabu — CRM Manager (Real Estate)</p>
